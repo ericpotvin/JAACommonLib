@@ -54,8 +54,17 @@ public class DownloadService extends IntentService
 	 */
 	public static final String INTENT = "IntentService";
 
+	/**
+	 * The callback content
+	 */
 	private String content;
+	/**
+	 * The HTTP Code
+	 */
 	private int httpCode;
+	/**
+	 * The document length
+	 */
 	private int length;
 
 	/**
@@ -138,7 +147,6 @@ public class DownloadService extends IntentService
 			httpURLConnection.setConnectTimeout(3000);
 			InputStream is = httpURLConnection.getInputStream();
 			this.httpCode = httpURLConnection.getResponseCode();
-System.out.println("this.httpCode = " + this.httpCode);
 			if(this.httpCode != HttpURLConnection.HTTP_OK) {
 				return;
 			}
